@@ -1,0 +1,102 @@
+@import 'styles/variables/colors';
+
+.container {
+  display: flex;
+
+  .left {
+    width: 250px;
+    margin-right: 40px;
+  }
+
+  .chart {
+    width: calc(100% - 290px);
+    max-width: calc(100% - 290px);
+  }
+}
+
+.heading {
+  font-size: 1.1rem;
+  font-weight: bold;
+
+  > small {
+    font-size: .9rem;
+    display: block;
+    font-weight: 300;
+    color: darken(#fff, 10%);
+  }
+}
+
+.value {
+  display: block;
+  font-size: 1.6rem;
+}
+
+.change {
+  display: flex;
+  align-items: center;
+
+  .negative, .positive {
+    flex-grow: 1;
+
+    > svg {
+      margin-right: .3em;
+    }
+  }
+
+  .negative {
+    color: red;
+  }
+
+  .switch {
+    cursor: pointer;
+    padding: 2px 7px;
+    display: flex;
+    align-items: center;
+    border-radius: 3px;
+    transition: .2s background-color;
+
+    > svg {
+      margin-left: .5em;
+    }
+
+    &:hover {
+      background: lighten($color-bg, 5%);
+    }
+  }
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 1em;
+
+  .stat {
+    width: 49%;
+    background-color: rgba(255, 255, 255, .05);
+    margin: 0 2% 2% 0;
+    transition: .5s background-color;
+    user-select: none;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+
+    &:nth-child(2n) {
+      margin-right: 0;
+    }
+
+    &:hover {
+      background-color: rgba(255, 255, 255, .1);
+    }
+
+    .label {
+      font-size: .8rem;
+      margin-bottom: .5em;
+      display: block;
+      color: rgba(255, 255, 255, .8)
+    }
+
+    .value {
+      font-size: 1rem;
+    }
+  }
+}

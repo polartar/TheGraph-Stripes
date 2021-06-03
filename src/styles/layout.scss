@@ -1,0 +1,13 @@
+@import 'styles/variables/colors';
+
+body {
+  background-color: $color-bg;
+  color: $color-fg;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 1em;
+}

@@ -1,0 +1,30 @@
+@import 'styles/variables/common';
+@import 'styles/variables/colors';
+
+.container {
+  display: flex;
+  flex-flow: column;
+  height: 100vh;
+}
+
+.header {
+  border-bottom: 1px solid $color-border;
+  background: lighten($color-bg, 2%);
+}
+
+.main {
+  flex-grow: 1;
+  display: flex;
+
+  .sidebar {
+    width: $sidebar-width;
+    min-width: $sidebar-width;
+    border-right: 1px solid $color-border;
+    background: lighten($color-bg, 2%);
+  }
+
+  .content {
+    flex-grow: 1;
+    padding: 50px;
+  }
+}

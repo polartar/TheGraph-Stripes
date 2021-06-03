@@ -1,0 +1,30 @@
+@import 'styles/variables/common';
+@import 'styles/variables/colors';
+
+.container {
+  display: flex;
+  height: $header-height;
+  min-height: $header-height;
+
+  .brand {
+    display: flex;
+    align-items: center;
+    width: $sidebar-width;
+    border-right: 1px solid $color-border;
+
+    .logoLink {
+      margin: 0 auto;
+      display: block;
+    }
+
+    .logoImg {
+      display: block;
+      height: $header-height - 40px;
+      width: auto;
+    }
+  }
+
+  .content {
+    flex-grow: 1;
+  }
+}

@@ -1,0 +1,8 @@
+.container {
+  position: relative;
+
+  // The chart
+  > div {
+    position: absolute;
+  }
+}

@@ -1,0 +1,43 @@
+@import 'styles/variables/colors';
+
+.container {
+
+}
+
+.nav {
+  list-style-type: none;
+  padding: 0;
+  margin: 40px 0 0 0;
+}
+
+.navItem {
+  display: block;
+
+  > a {
+    $border-left-width: 4px;
+    $padding: 15px;
+
+    display: block;
+    color: $color-fg;
+    text-decoration: none;
+    padding: $padding;
+    padding-left: $padding - $border-left-width;
+    border-left: $border-left-width solid transparent;
+    transition: .2s border-color, .2s background-color;
+    margin-bottom: 5px;
+
+    &:hover {
+      border-color: darken($color-accent, 30%);
+    }
+
+    &.active {
+      background-color: lighten($color-bg, 5%);
+      border-color: $color-accent;
+    }
+
+    .icon {
+      width: 20px;
+      margin-right: 1em;
+    }
+  }
+}
