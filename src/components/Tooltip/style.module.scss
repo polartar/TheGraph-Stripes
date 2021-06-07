@@ -1,0 +1,55 @@
+@import 'styles/variables/common';
+@import 'styles/mixins/common';
+
+.tooltip {
+  $arrow-size: 6px;
+  $spacing: 5px; // Dist from handle to arrow
+  $bg-color: #fff;
+  $border-radius: 6px;
+
+  position: absolute;
+  z-index: $tooltip-z-index;
+  background-color: $bg-color;
+  border-radius: $border-radius;
+  padding: 10px 20px;
+  color: #444;
+  pointer-events: none;
+  text-align: center;
+  max-width: 200px;
+  box-shadow: 0 0 10px 2px rgba(0,0,0,.2);
+  
+  // Arrows
+  // ==================================
+
+  &.top::after {
+    @include arrow(down, $arrow-size, $bg-color);
+    bottom: -$arrow-size;
+  }
+  &.right::after {
+    @include arrow(left, $arrow-size, $bg-color);
+    left: -$arrow-size;
+  }
+  &.left::after {
+    @include arrow(right, $arrow-size, $bg-color);
+    right: -$arrow-size;
+  }
+  &.bottom::after {
+    @include arrow(up, $arrow-size, $bg-color);
+    top: -$arrow-size;
+  }
+
+  &.top::after,
+  &.bottom::after {
+    left: calc(50% - #{$arrow-size});
+  }
+
+  &.left::after,
+  &.right::after {
+    top: calc(50% - #{$arrow-size});
+  }
+
+  &.right { margin-left: $arrow-size + $spacing; }
+  &.left { margin-left: -($arrow-size + $spacing); }
+  &.top { margin-top: -($arrow-size + $spacing); }
+  &.bottom { margin-top: $arrow-size + $spacing; }
+}

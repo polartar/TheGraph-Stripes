@@ -1,0 +1,91 @@
+@import 'styles/variables/common';
+@import 'styles/mixins/responsive';
+@import 'styles/variables/colors';
+@import 'styles/variables/spacing';
+
+$separator-color: rgba(0, 0, 0, .1);
+
+.modal {
+  $padding: $spacing-m;
+
+  background: $color-light-bg;
+  border-radius: 20px;
+  width: calc(100vw - #{$spacing-s * 2});
+  margin: $spacing-s auto;
+  overflow: hidden;
+  position: relative;
+  color: $color-light-fg;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+
+  @include break-up-to-md {
+    min-height: calc(100% - #{$spacing-s * 2});
+  }
+
+  &.medium {
+    @include break-md {
+      width: $modal-width;
+      box-shadow: 0 0 10px rgba(0,0,0,.2);
+    }
+  }
+
+  &.large {
+    height: calc(100% - #{$spacing-s * 2});
+    width: calc(100% - #{$spacing-s * 2});
+    margin: $spacing-s auto;
+
+    @include break-md {
+      width: 800px;
+    }
+  }
+
+  &.small {
+    @include break-md {
+      width: 400px;
+    }
+  }
+
+  .header {
+    padding: $padding;
+    border-bottom: 1px solid $separator-color;
+    position: relative;
+    display: flex;
+  }
+
+  .heading {
+    margin: .1em 0 0 0;
+    flex-grow: 1;
+  }
+
+  .close {
+    border: 0;
+    outline: 0;
+    background: transparent;
+    font-size: 1.2em;
+    cursor: pointer;
+    
+  }
+
+  .body {
+    padding: $padding;
+    position: relative;
+  }
+
+  .actions {
+    border-top: 1px solid $separator-color;
+    padding: $padding;
+    
+    > button {
+      margin-right: 10px;
+
+      @include break-up-to-md {
+        display: block;
+        width: 100%;
+        margin: 0 0 10px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}

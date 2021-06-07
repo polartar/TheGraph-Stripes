@@ -1,0 +1,55 @@
+@import 'styles/variables/colors';
+@import 'styles/mixins/common';
+
+.inputWrapper {
+  display: flex;
+
+  .input {
+    border:none;
+    background-image:none;
+    background-color:transparent;
+    box-shadow: none;
+    outline: none;
+    flex-grow: 1;
+
+    &::placeholder {
+      color: #999;
+    }
+  }
+
+  .addon {
+    display: flex;
+    align-items: center;
+
+    .maxBtn {
+      @include reset-button;
+      background-color: lighten($color-primary, 40%);
+      padding: 3px 5px;
+      text-transform: uppercase;
+      font-size: .7rem;
+      border-radius: 3px;
+      font-weight: 600;
+      color: desaturate($color-primary, 20%);
+      margin-right: .5em;
+
+      &:hover {
+        background-color: $color-primary;
+        color: #fff;
+      }
+    }
+  
+    .currency {
+      display: flex;
+      align-items: center;
+      font-weight: 600;
+      font-size: .9rem;
+
+      .logo {
+        display: block;
+        width: 18px;
+        height: 18px;
+        margin-right: .3em;
+      }
+    }
+  }
+}

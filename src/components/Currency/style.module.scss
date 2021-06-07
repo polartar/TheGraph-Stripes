@@ -1,0 +1,9 @@
+.container {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+
+  .label {
+    margin-left: .5em;
+  }
+}

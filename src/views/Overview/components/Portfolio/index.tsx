@@ -2,10 +2,15 @@ import style from './style.module.scss';
 import Chart from 'components/Chart';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown, faCaretDown } from '@fortawesome/free-solid-svg-icons';
+import classes from 'utils/classes';
 
-const Portfolio = () => {
+interface Props {
+  className?: string;
+}
+
+const Portfolio = ({ className }: Props) => {
   return (
-    <div className={style.container}>
+    <div className={classes(className, style.container)}>
       <div className={style.left}>
         <h1 className={style.heading}>
           Portfolio Value

@@ -1,0 +1,54 @@
+@import 'styles/variables/colors';
+
+.container {
+  background: $color-light-bg;
+  border-radius: 10px;
+  color: $color-light-fg;
+  padding: 15px;
+  user-select: none;
+  transition: .2s background-color;
+
+  &:focus-within {
+    background-color: #fff;
+  }
+
+  &.joinTop,
+  &.joinBoth {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  &.joinBottom,
+  &.joinBoth {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom: 1px solid #ccc;
+  }
+}
+
+.labelWrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1em;
+
+  .label {
+    flex-grow: 1;
+    text-transform: uppercase;
+    font-size: .8rem;
+    font-weight: 600;
+    color: #666;
+
+    .helpIcon {
+      margin-left: .5em;
+    }
+  }
+
+  .info {
+    font-size: .9rem;
+    color: #666;
+
+    > strong {
+      color: $color-light-fg;
+    }
+  }
+}

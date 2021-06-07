@@ -1,0 +1,46 @@
+@import 'styles/variables/common';
+@import 'styles/variables/colors';
+
+@mixin reset-button {
+  outline: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-family: $base-font-family;
+  font-size: 1rem;
+  font-weight: normal;
+  color: $color-fg;
+}
+
+@mixin arrow($dir, $size, $color) {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 0; 
+  height: 0;
+
+  @if ($dir == right) {
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-left: $size solid $color;
+  }
+
+  @if ($dir == left) {
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-right: $size solid $color;
+  }
+
+  @if ($dir == up) {
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+    border-bottom: $size solid $color;
+  }
+
+  @if ($dir == down) {
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+    border-top: $size solid $color;
+  }
+}

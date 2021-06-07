@@ -1,0 +1,71 @@
+@import 'styles/mixins/common';
+
+.button {
+  @include reset-button;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: .2s background-color, .2s color;
+  user-select: none;
+
+  &.small {
+    font-size: .7rem;
+    height: 24px;
+    padding: 0 8px;
+    border-radius: 3px;
+  }
+
+  &.medium {
+    font-size: .8rem;
+    height: 36px;
+    padding: 0 14px;
+    border-radius: 6px;
+  }
+
+  &.large {
+    font-size: .9rem;
+    height: 40px;
+    padding: 0 15px;
+    border-radius: 6px;
+  }
+
+  // Variants
+  &.dark {
+    color: #fff;
+    background-color: rgba(255, 255, 255, .2);
+
+    &:hover {
+      background-color: rgba(255, 255, 255, .6);
+      color: #000;
+    }
+  }
+
+  &.secondary {
+    color: #444;
+    background-color: rgb(214, 214, 214);
+
+    &:hover {
+      background-color: rgb(230, 230, 230);
+      color: #000;
+    }
+  }
+
+  &.primary {
+    color: #fff;
+    background-color: $color-primary;
+
+    &:hover {
+      background-color: lighten($color-primary, 5%);
+    }
+  }
+
+  &.danger {
+    color: #fff;
+    background-color: $color-danger;
+
+    &:hover {
+      background-color: lighten($color-danger, 5%);
+    }
+  }
+}

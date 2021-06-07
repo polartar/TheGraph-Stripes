@@ -1,8 +1,10 @@
-import { BscConnector } from '@binance-chain/bsc-connector';
-import { faExchangeAlt, faTachometerAlt, faTint, faUmbrella } from '@fortawesome/free-solid-svg-icons';
-import { useWeb3React } from '@web3-react/core';
-import { InjectedConnector } from '@web3-react/injected-connector';
-import { Redirect, Route, Switch, useRouteMatch } from 'react-router';
+import {
+  faExchangeAlt,
+  faTachometerAlt,
+  faTint,
+  faUmbrella,
+} from '@fortawesome/free-solid-svg-icons';
+import { Redirect, Route, Switch } from 'react-router';
 import Insurance from 'views/Insurance';
 import Liquidity from 'views/Liquidity';
 import NotFound from 'views/NotFound';
@@ -10,20 +12,7 @@ import Overview from 'views/Overview';
 import Trade from 'views/Trade';
 import Dashboard from './components/Dashboard';
 
-const connector = new InjectedConnector({ supportedChainIds: [97] });
-
 function App() {
-  const match = useRouteMatch();
-  const { activate, deactivate, account, chainId } = useWeb3React();
-
-  function login() {
-    activate(connector);
-  }
-
-  function logout() {
-    deactivate();
-  }
-
   return (
     <Dashboard
       navItems={[
@@ -41,17 +30,6 @@ function App() {
         <Redirect exact from="/" to="/overview" />
         <Route component={NotFound} />
       </Switch>
-      {/* <p>Strips.finance app</p>
-      {account ? (
-        <>
-          <p>
-            {account} {chainId}
-          </p>
-          <button onClick={logout}>Logout</button>
-        </>
-      ) : (
-        <button onClick={login}>Connect</button>
-      )} */}
     </Dashboard>
   );
 }

@@ -1,0 +1,43 @@
+@import 'styles/variables/colors';
+
+.wrapper {
+  display: flex;
+  align-items: center;
+
+  .input {
+    $thumb-size: 16px;
+    $thumb-color: $color-primary;
+
+    flex-grow: 1;
+    appearance: none;
+    height: 4px;
+    background: #d3d3d3;
+    outline: none;
+    transition: opacity .2s;
+    border-radius: 100px;
+
+    &::-webkit-slider-thumb {
+      appearance: none;
+      width: $thumb-size;
+      height: $thumb-size;
+      background: $thumb-color;
+      cursor: pointer;
+      border-radius: 50px;
+    }
+
+    &::-moz-range-thumb {
+      width: $thumb-size;
+      height: $thumb-size;
+      background: $thumb-color;
+      cursor: pointer;
+      border-radius: 50px;
+    }
+  }
+
+  .value {
+    min-width: 50px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 2px;
+  }
+}

@@ -1,0 +1,19 @@
+.header {
+  display: flex;
+  margin-bottom: .5em;
+
+  .heading {
+    flex-grow: 1;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0;
+  
+    > small {
+      font-weight: 400;
+      color: rgba(255, 255, 255, .6);
+      display: inline-block;
+      margin-left: .5em;
+      font-size: .9rem;
+    }
+  }
+}

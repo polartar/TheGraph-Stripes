@@ -1,0 +1,116 @@
+
+// Extra small devices (portrait phones, less than 576px)
+// No media query for `xs` since this is the default
+
+// Small devices (landscape phones, 576px and up)
+$break-sm: 576px;
+
+// Medium devices (tablets, 768px and up)
+$break-md: 768px;
+
+// Large devices (desktops, 992px and up)
+$break-lg: 992px;
+
+// Extra large devices (large desktops, 1200px and up)
+$break-xl: 1200px;
+
+@mixin break($width) {
+  @media screen and (min-width: $width) {
+    @content;
+  }
+}
+
+@mixin break-up-to($width) {
+  @media screen and (max-width: $width - 1) {
+    @content;
+  }
+}
+
+@mixin break-up-to-sm {
+  @include break-up-to($break-sm) {
+    @content;
+  }
+}
+
+@mixin break-sm {
+  @include break($break-sm) {
+    @content;
+  }
+}
+
+@mixin break-up-to-md {
+  @include break-up-to($break-md) {
+    @content;
+  }
+}
+
+@mixin break-md {
+  @include break($break-md) {
+    @content;
+  }
+}
+
+@mixin break-up-to-lg {
+  @include break-up-to($break-lg) {
+    @content;
+  }
+}
+
+@mixin break-lg {
+  @include break($break-lg) {
+    @content;
+  }
+}
+
+@mixin break-up-to-xl {
+  @include break-up-to($break-xl) {
+    @content;
+  }
+}
+
+@mixin break-xl {
+  @include break($break-xl) {
+    @content;
+  }
+}
+
+@mixin responsive-debug-info {
+  &::before {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding: 6px;
+    background-color: #101010;
+    color: #f0f0f0;
+    font-size: 10px;
+    z-index: 9999;
+    pointer-events: none;
+    touch-action: none;
+    opacity: 0.5;
+  }
+
+  @include break-sm {
+    &::before {
+      content: 'small';
+    }
+  }
+
+  @include break-md {
+    &::before {
+      content: 'medium';
+    }
+  }
+
+  @include break-lg {
+    &::before {
+      content: 'large';
+    }
+  }
+
+  @include break-xl {
+    &::before {
+      content: 'extra large';
+    }
+  }
+}

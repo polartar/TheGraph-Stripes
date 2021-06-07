@@ -1,0 +1,7 @@
+@import 'styles/mixins/responsive';
+
+.menu {
+  @include break-md {
+    height: calc(100vh - 400px);
+  }
+}

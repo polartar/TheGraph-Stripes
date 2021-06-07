@@ -1,0 +1,27 @@
+@import 'styles/mixins/common';
+
+$padding-h: 10px;
+
+.table {
+  width: 100%;
+
+  .heading {
+    text-align: left;
+    background-color: rgba(255, 255, 255, .1);
+    height: 20px;
+    padding: 5px $padding-h;
+    font-weight: 400;
+  }
+
+  .row {
+    transition: .3s background-color;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, .05);
+    }
+  }
+
+  .cell {
+    padding: 7px $padding-h;
+  }
+}

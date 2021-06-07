@@ -1,0 +1,31 @@
+@import 'styles/variables/colors';
+
+.handle {
+  background: $color-light-bg;
+  border-radius: 10px;
+  color: $color-light-fg;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .4);
+  display: flex;
+  padding: 15px;
+  cursor: pointer;
+  align-items: center;
+  user-select: none;
+
+  .main {
+    flex-grow: 1;
+
+    .value {
+      display: flex;
+      align-items: center;
+
+      > svg {
+        margin: 0 .3em;
+        color: rgba(0, 0, 0, .3);
+      }
+    }
+  }
+
+  .caret {
+
+  }
+}

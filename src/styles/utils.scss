@@ -1,0 +1,42 @@
+@import 'styles/mixins/responsive';
+@import 'styles/variables/spacing.scss';
+
+// Alignment
+.tac { text-align: center; }
+.tal { text-align: left; }
+.tar { text-align: right; }
+
+// Spacing helpers
+@mixin spacing($size, $sizeChar, $typeChar) {
+  @if $typeChar == m {
+    .#{$typeChar}a#{$sizeChar} { margin: $size !important; }
+    .#{$typeChar}h#{$sizeChar} { margin-left: $size !important; margin-right: $size !important; }
+    .#{$typeChar}v#{$sizeChar} { margin-top: $size !important; margin-bottom: $size !important; }
+    .#{$typeChar}t#{$sizeChar} { margin-top: $size !important; }
+    .#{$typeChar}r#{$sizeChar} { margin-right: $size !important; }
+    .#{$typeChar}b#{$sizeChar} { margin-bottom: $size !important; }
+    .#{$typeChar}l#{$sizeChar} { margin-left: $size !important; }
+  } @else if $typeChar == p {
+    .#{$typeChar}a#{$sizeChar} { padding: $size !important; }
+    .#{$typeChar}h#{$sizeChar} { padding-left: $size !important; padding-right: $size !important; }
+    .#{$typeChar}v#{$sizeChar} { padding-top: $size !important; padding-bottom: $size !important; }
+    .#{$typeChar}t#{$sizeChar} { padding-top: $size !important; }
+    .#{$typeChar}r#{$sizeChar} { padding-right: $size !important; }
+    .#{$typeChar}b#{$sizeChar} { padding-bottom: $size !important; }
+    .#{$typeChar}l#{$sizeChar} { padding-left: $size !important; }
+  }
+}
+
+// Margin
+@include spacing(0, n, m);
+@include spacing($spacing-xs, xs, m);
+@include spacing($spacing-s, s, m);
+@include spacing($spacing-m, m, m);
+@include spacing($spacing-l, l, m);
+
+// Padding
+@include spacing(0, n, p);
+@include spacing($spacing-xs, xs, p);
+@include spacing($spacing-s, s, p);
+@include spacing($spacing-m, m, p);
+@include spacing($spacing-l, l, p);

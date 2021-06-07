@@ -1,7 +1,8 @@
-import React from "react";
+import React from 'react';
 // import { ModalProvider } from '@pancakeswap/uikit'
-import { Web3ReactProvider } from "@web3-react/core";
-import { BrowserRouter } from "react-router-dom";
+import { Web3ReactProvider } from '@web3-react/core';
+import { BrowserRouter } from 'react-router-dom';
+import ModalPresenter from 'providers/ModalPresenter';
 // import { HelmetProvider } from 'react-helmet-async'
 // import { Provider } from 'react-redux'
 // import { getLibrary } from 'utils/web3React'
@@ -19,7 +20,7 @@ const Providers: React.FC = ({ children }) => {
   return (
     <Web3ReactProvider getLibrary={getLibrary}>
       <BrowserRouter>
-        {children}
+        <ModalPresenter>{children}</ModalPresenter>
       </BrowserRouter>
     </Web3ReactProvider>
   );

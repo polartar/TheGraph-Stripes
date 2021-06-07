@@ -1,2 +1,11 @@
+$base-font-family: 'Open Sans', sans-serif;
 $header-height: 70px;
 $sidebar-width: 240px;
+$panel-width: 450px;
+
+// Standard modal width (on mobile is 100%)
+$modal-width: 600px;
+
+// Layering
+$modal-z-index: 100;
+$tooltip-z-index: 101;
