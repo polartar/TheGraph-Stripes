@@ -1,0 +1,13 @@
+@import 'styles/variables/colors';
+
+.positive {
+  color: $color-green;
+}
+
+.negative {
+  color: $color-red;
+}
+
+.icon {
+  margin-right: .2em;
+}

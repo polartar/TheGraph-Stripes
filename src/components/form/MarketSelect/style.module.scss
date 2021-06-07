@@ -23,6 +23,29 @@
         color: rgba(0, 0, 0, .3);
       }
     }
+
+    .rates {
+      margin-top: .5em;
+      display: flex;
+
+      .rate {
+        &:last-child {
+          margin-left: 2em;
+        }
+
+        .rateLabel {
+          display: block;
+          text-transform: uppercase;
+          font-size: .7rem;
+          margin-bottom: .3em;
+          color: #666;
+        }
+
+        .rateAmount {
+          font-size: 1.1rem;
+        }
+      }
+    }
   }
 
   .caret {
