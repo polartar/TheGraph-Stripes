@@ -36,7 +36,7 @@ const MarketSelect = ({ className }: Props) => {
     <div className={classes(style.handle, className)} onClick={openMenu}>
       <div className={style.main}>
         <div className={style.value}>
-          <MarketName market="aave" />
+          <MarketName market="AAVE" />
           <FontAwesomeIcon icon={faAngleRight} />
           USDC Deposit Rate
         </div>

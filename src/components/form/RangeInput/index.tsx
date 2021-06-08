@@ -1,20 +1,34 @@
+import { useField } from 'formik';
 import FieldWrapper, { FieldWrapperProps } from '../FieldWrapper';
 import style from './style.module.scss';
 
 interface Props extends FieldWrapperProps {
+  name: string;
   min: number;
   max: number;
-  valueFormat?: (val: string) => string;
+  valueFormat?: (val: number) => string;
 }
 
-const RangeInput = ({ min, max, valueFormat, ...fwProps }: Props) => {
-  valueFormat = valueFormat ? valueFormat : (val) => val;
+const RangeInput = ({
+  name,
+  min,
+  max,
+  valueFormat = (val) => `${val}`,
+  ...fwProps
+}: Props) => {
+  const [field, meta, helpers] = useField<number>(name);
 
   return (
     <FieldWrapper {...fwProps}>
       <div className={style.wrapper}>
-        <input type="range" min={min} max={max} className={style.input} />
-        <span className={style.value}>{valueFormat('10')}</span>
+        <input
+          type="range"
+          min={min}
+          max={max}
+          className={style.input}
+          {...field}
+        />
+        <span className={style.value}>{valueFormat(field.value)}</span>
       </div>
     </FieldWrapper>
   );

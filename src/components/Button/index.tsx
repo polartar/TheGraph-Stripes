@@ -1,3 +1,5 @@
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classes from 'utils/classes';
 import style from './style.module.scss';
 
@@ -6,7 +8,9 @@ interface Props {
   children?: any;
   onClick?: (e: any) => void;
   className?: string;
-  variant?: 'primary' | 'secondary' | 'dark' | 'danger';
+  variant?: 'primary' | 'secondary' | 'dark' | 'negative' | 'positive';
+  block?: boolean;
+  icon?: IconProp;
 }
 
 const Button = ({
@@ -15,6 +19,8 @@ const Button = ({
   onClick,
   className,
   variant = 'dark',
+  block,
+  icon
 }: Props) => {
   return (
     <button
@@ -22,9 +28,13 @@ const Button = ({
         [style.small]: size === 'small',
         [style.medium]: size === 'medium',
         [style.large]: size === 'large',
+        [style.block]: block
       })}
       onClick={onClick}
     >
+      {icon && (
+        <FontAwesomeIcon icon={icon} className={style.icon} />
+      )}
       {children}
     </button>
   );

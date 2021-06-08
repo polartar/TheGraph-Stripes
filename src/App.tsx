@@ -4,6 +4,7 @@ import {
   faTint,
   faUmbrella,
 } from '@fortawesome/free-solid-svg-icons';
+import useEagerConnect from 'hooks/useEagerConnect';
 import { Redirect, Route, Switch } from 'react-router';
 import Insurance from 'views/Insurance';
 import Liquidity from 'views/Liquidity';
@@ -13,6 +14,8 @@ import Trade from 'views/Trade';
 import Dashboard from './components/Dashboard';
 
 function App() {
+  useEagerConnect();
+
   return (
     <Dashboard
       navItems={[

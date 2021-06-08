@@ -1,14 +1,16 @@
 import { useWeb3React } from '@web3-react/core';
 import Button from 'components/Button';
 import Modal from 'components/Modal';
+import useAuth from 'hooks/useAuth';
 import useModal from 'hooks/useModal';
 
 const AccountModal = () => {
   const modal = useModal();
-  const { account, deactivate } = useWeb3React();
+  const { logout } = useAuth();
+  const { account } = useWeb3React();
 
-  function logout() {
-    deactivate();
+  function doLogout() {
+    logout();
     modal.pop();
   }
 
@@ -16,7 +18,7 @@ const AccountModal = () => {
     <Modal title="Your Wallet">
       <Modal.Body>
         <p>{account}</p>
-        <Button variant="danger" onClick={logout}>Logout</Button>
+        <Button variant="negative" onClick={doLogout}>Logout</Button>
       </Modal.Body>
     </Modal>
   );

@@ -2,20 +2,14 @@ import { useWeb3React } from '@web3-react/core';
 import { InjectedConnector } from '@web3-react/injected-connector';
 import AccountModal from 'components/AccountModal';
 import Button from 'components/Button';
+import useAuth from 'hooks/useAuth';
 import useModal from 'hooks/useModal';
 import style from './style.module.scss';
 
-const connector = new InjectedConnector({ supportedChainIds: [56] });
-
-interface Props {}
-
 const UserBlock = () => {
-  const { activate, account } = useWeb3React();
+  const { login } = useAuth();
+  const { account } = useWeb3React();
   const modal = useModal();
-
-  function login() {
-    activate(connector);
-  }
 
   function openAccount() {
     modal.present(<AccountModal />);

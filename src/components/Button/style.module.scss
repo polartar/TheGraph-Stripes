@@ -9,6 +9,10 @@
   transition: .2s background-color, .2s color;
   user-select: none;
 
+  .icon {
+    margin-right: .5em;
+  }
+
   &.small {
     font-size: .7rem;
     height: 24px;
@@ -25,9 +29,9 @@
 
   &.large {
     font-size: .9rem;
-    height: 40px;
+    height: 45px;
     padding: 0 15px;
-    border-radius: 6px;
+    border-radius: 10px;
   }
 
   // Variants
@@ -60,12 +64,26 @@
     }
   }
 
-  &.danger {
+  &.negative {
     color: #fff;
     background-color: $color-danger;
 
     &:hover {
       background-color: lighten($color-danger, 5%);
     }
+  }
+
+  &.positive {
+    color: #fff;
+    background-color: $color-positive;
+
+    &:hover {
+      background-color: lighten($color-positive, 5%);
+    }
+  }
+
+  &.block {
+    display: block;
+    width: 100%;
   }
 }

@@ -19,7 +19,6 @@ const LiveSignum = ({ value, className }: Props) => {
 
   useEffect(() => {
     const floatVal = parseFloat(value);
-    console.log(floatVal);
 
     if (floatVal > lastValue.current) {
       setDirection('up');

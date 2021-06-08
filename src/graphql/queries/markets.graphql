@@ -1,0 +1,14 @@
+query markets {
+  markets {
+    name
+    assetSymbol
+    currentPrice
+    currentPrice24Change
+    oraclePrice
+    oraclePrice24Change
+    pool {
+      stackedLiquidity
+    }
+    turnover24
+  }
+}

@@ -3,6 +3,8 @@ import React from 'react';
 import { Web3ReactProvider } from '@web3-react/core';
 import { BrowserRouter } from 'react-router-dom';
 import ModalPresenter from 'providers/ModalPresenter';
+import MarketsProvider from 'providers/MarketsProvider';
+import ApolloProvider from 'providers/ApolloProvider';
 // import { HelmetProvider } from 'react-helmet-async'
 // import { Provider } from 'react-redux'
 // import { getLibrary } from 'utils/web3React'
@@ -18,11 +20,15 @@ function getLibrary(provider: any) {
 
 const Providers: React.FC = ({ children }) => {
   return (
-    <Web3ReactProvider getLibrary={getLibrary}>
-      <BrowserRouter>
-        <ModalPresenter>{children}</ModalPresenter>
-      </BrowserRouter>
-    </Web3ReactProvider>
+    <ApolloProvider>
+      <Web3ReactProvider getLibrary={getLibrary}>
+        <MarketsProvider>
+          <BrowserRouter>
+            <ModalPresenter>{children}</ModalPresenter>
+          </BrowserRouter>
+        </MarketsProvider>
+      </Web3ReactProvider>
+    </ApolloProvider>
   );
 };
 
