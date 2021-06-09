@@ -5,6 +5,8 @@ import { BrowserRouter } from 'react-router-dom';
 import ModalPresenter from 'providers/ModalPresenter';
 import MarketsProvider from 'providers/MarketsProvider';
 import ApolloProvider from 'providers/ApolloProvider';
+import { Web3Provider } from '@ethersproject/providers';
+import Web3 from 'web3';
 // import { HelmetProvider } from 'react-helmet-async'
 // import { Provider } from 'react-redux'
 // import { getLibrary } from 'utils/web3React'
@@ -15,8 +17,12 @@ import ApolloProvider from 'providers/ApolloProvider';
 // import store from 'state'
 
 function getLibrary(provider: any) {
-  return provider; // this will vary according to whether you use e.g. ethers or web3.js
+  return new Web3(provider);
 }
+
+// function getLibrary(provider: any) {
+//   return provider; // this will vary according to whether you use e.g. ethers or web3.js
+// }
 
 const Providers: React.FC = ({ children }) => {
   return (

@@ -1,15 +1,28 @@
-import { useWeb3React } from '@web3-react/core';
 import CurrencyInput from 'components/form/CurrencyInput';
 import MarketSelect from 'components/form/MarketSelect';
 import RangeInput from 'components/form/RangeInput';
 import { useFormikContext } from 'formik';
+import useWeb3 from 'hooks/useWeb3';
 import { useEffect, useRef } from 'react';
 import { FormValues } from '..';
 
 const TradeFields = () => {
   const form = useFormikContext<FormValues>();
   const ignoreChange = useRef<string>();
-  const { account } = useWeb3React();
+  const { account, library } = useWeb3();
+
+  useEffect(() => {
+    if (!library) {
+      return;
+    }
+
+    // console.log(account, library.getBalance);
+
+    // console.log();
+    library.eth.getBalance(account).then(res => {
+      console.log(res);
+    })
+  }, [library]);
 
   // Bind collateral and leverage to position
   useEffect(() => {

@@ -8,6 +8,7 @@ interface Props {
 
 const MarketsProvider = ({ children }: Props) => {
   const { loading, error, data } = useMarketsQuery();
+
   // const [markets, setMarkets] = useState(0);
 
   // useEffect(() => {
