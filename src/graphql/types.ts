@@ -989,10 +989,10 @@ export type MarketsQuery = (
   { __typename?: 'Query' }
   & { markets: Array<(
     { __typename?: 'Market' }
-    & Pick<Market, 'name' | 'assetSymbol' | 'currentPrice' | 'currentPrice24Change' | 'oraclePrice' | 'oraclePrice24Change' | 'turnover24'>
+    & Pick<Market, 'id' | 'token' | 'name' | 'created' | 'createdAtBlock' | 'createdAtTransaction' | 'initialPrice' | 'assetSymbol' | 'currentPrice' | 'currentPrice24Change' | 'oraclePrice' | 'oraclePrice24Change' | 'turnover24'>
     & { pool?: Maybe<(
       { __typename?: 'MarketLiquidityPool' }
-      & Pick<MarketLiquidityPool, 'stackedLiquidity'>
+      & Pick<MarketLiquidityPool, 'stackedLiquidity' | 'id' | 'unrealizedProfit'>
     )> }
   )> }
 );
@@ -1001,6 +1001,12 @@ export type MarketsQuery = (
 export const MarketsDocument = gql`
     query markets {
   markets {
+    id,
+    token,
+    created,
+    createdAtBlock,
+    createdAtTransaction,
+    initialPrice
     name
     assetSymbol
     currentPrice
@@ -1008,7 +1014,9 @@ export const MarketsDocument = gql`
     oraclePrice
     oraclePrice24Change
     pool {
-      stackedLiquidity
+      stackedLiquidity,
+      id,
+      unrealizedProfit
     }
     turnover24
   }

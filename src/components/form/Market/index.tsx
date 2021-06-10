@@ -3,54 +3,72 @@ import { faExpandAlt, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import MarketName from 'components/MarketName';
 import Button from 'components/Button';
-import classes from 'utils/classes';
 import style from './style.module.scss';
+import { Market as MarketType } from 'graphql/types';
+import { toCurrency } from 'utils/formatters';
 
 interface Props {
-  className?: string;
-  bodyItems?: Array<{name, value}>;
+  loading?: boolean;
+  liquidities?: MarketType[];
+  removeLiquidity: Function;
 }
 
-const Market = ({ className, bodyItems}: Props) => {
+const Market = ({ loading, liquidities, removeLiquidity}: Props) => {
   const [isExpand, setIsExpand] = useState(true);
+  const [selectedId, setSelectedId] = useState(null)
 
   return (
-    <div className={classes(style.handle, className)} onClick={() => setIsExpand(!isExpand)}>
+    <div className={style.handle} >
         <div className={style.header}>
             <div className={style.main}>
                 <div className={style.value}>
                 <MarketName market="AAVE" />
-                <FontAwesomeIcon icon={faAngleRight} />
+                <FontAwesomeIcon icon={faAngleRight}/>
                 USDC Deposit Rate
                 </div>
                 
             </div>
-            <FontAwesomeIcon icon={faExpandAlt} className={style.caret} />
+            <FontAwesomeIcon icon={faExpandAlt} className={style.caret} onClick={() => setIsExpand(!isExpand)}/>
       </div>
-      <div className={isExpand? style.body : style.hide}>
-          {
-          bodyItems?.map(item => {
-              return (
-                  <div key={item.name} className={style.bodyItem}>
-                      <div>{item.name}:</div>
-                      <div>{item.value}</div>                          
-                  </div>
-              )
-          })
-          }
-          {
-              bodyItems?.length &&
-              <Button variant="secondary" size="medium">
-                Remove
-               </Button>
-          }
-      </div>
+      {
+          loading ? ( <div>Loading ....</div>)
+           : (
+                <div className={isExpand? style.body : style.hide}>
+                    {
+                        (liquidities.length!==0) && liquidities.map(liquidity => {
+                            return <div key={liquidity.id} className={(liquidity.id === selectedId)? style.selected : style.liquiditySection} onClick={() => setSelectedId(liquidity.id)}>
+                                <div className={style.item}>
+                                    <div>Pooled BUSD</div>
+                                    <div>
+                                        {toCurrency(liquidity.pool.stackedLiquidity)} 
+                                    </div>                       
+                                </div>
+                                <div className={style.item}>
+                                    <div>Your pool tokens:</div>
+                                    <div>{liquidity.token.name}</div>                       
+                                </div>
+                                <div className={style.item}>
+                                    <div>Your pool share:</div>
+                                    <div>10 %</div>                       
+                                </div>
+                                <div className={style.item}>
+                                    <div>Your pool profit:</div>
+                                    <div>{toCurrency(liquidity.pool.stackedLiquidity)} BUSD</div>                       
+                                </div>
+                            </div>
+                        })
+                    }
+                    {
+                        (liquidities.length!==0) &&
+                        <Button variant="secondary" size="medium" className={style.removeButton} onClick={() => removeLiquidity(selectedId)}>
+                        Remove
+                        </Button>
+                    }
+                </div>
+           )
+      }
     </div>
   );
 };
-
-function randomNumber() {
-  return Math.floor(Math.random() * (1000 - 100) + 100) / 100;
-}
 
 export default Market;

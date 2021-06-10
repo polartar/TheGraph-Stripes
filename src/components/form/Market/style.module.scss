@@ -30,10 +30,32 @@
       }
     }
   }
-
   .body {
-    display: flex;
-    justify-content: space-between;
+    margin-bottom: $spacing-xs;
+    
+    .item {
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    .removeButton {
+      margin-top: $spacing-xs;
+    }
+
+    .liquiditySection {
+      cursor: pointer;
+      margin-bottom: $spacing-xs;
+
+      &:hover {
+        background-color: $color-light-bg-hover;
+      }
+    }
+
+    .selected {
+      cursor: pointer;
+      background-color: $color-light-bg-hover;
+      margin-bottom: $spacing-xs;
+    }
   }
 
   .hide {

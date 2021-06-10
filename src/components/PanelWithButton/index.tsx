@@ -14,6 +14,8 @@ interface Props {
     icon: IconProp;
     onClick: () => void;
   }[];
+  addLiquidity: Function
+  initLiquidity: Function
 }
 
 const PanelWithButton = ({
@@ -23,6 +25,8 @@ const PanelWithButton = ({
   children,
   className,
   actions,
+  addLiquidity,
+  initLiquidity
 }: Props) => {
   return (
     <div className={classes(style.panel, className)}>
@@ -36,14 +40,14 @@ const PanelWithButton = ({
             <div className={style.actions}>
               {actions.map((action, i) => (
                 <button className={style.action} onClick={action.onClick} key={i}>
-                  <FontAwesomeIcon icon={action.icon} />
+                  <FontAwesomeIcon icon={action.icon}  onClick={() => initLiquidity()}/>
                 </button>
               ))}
             </div>
           )}
         </div>
-        
-        <Button variant="primary" size="medium">
+
+        <Button variant="primary" size="medium" onClick={() => addLiquidity()}>
           {buttonName}
         </Button>
       </div>
