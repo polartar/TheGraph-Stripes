@@ -38,7 +38,7 @@ const Market = ({ loading, liquidities, removeLiquidity}: Props) => {
                         (liquidities.length!==0) && liquidities.map(liquidity => {
                             return <div key={liquidity.id} className={(liquidity.id === selectedId)? style.selected : style.liquiditySection} onClick={() => setSelectedId(liquidity.id)}>
                                 <div className={style.item}>
-                                    <div>Pooled BUSD</div>
+                                    <div>Pooled BUSD:</div>
                                     <div>
                                         {toCurrency(liquidity.pool.stackedLiquidity)} 
                                     </div>                       
@@ -53,7 +53,7 @@ const Market = ({ loading, liquidities, removeLiquidity}: Props) => {
                                 </div>
                                 <div className={style.item}>
                                     <div>Your pool profit:</div>
-                                    <div>{toCurrency(liquidity.pool.stackedLiquidity)} BUSD</div>                       
+                                    <div>{toCurrency(liquidity.pool.unrealizedProfit)} BUSD</div>                       
                                 </div>
                             </div>
                         })

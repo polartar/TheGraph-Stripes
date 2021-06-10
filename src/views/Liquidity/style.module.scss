@@ -4,6 +4,13 @@
   width: $panel-width;
   margin: 0 auto;
   border-radius: 20px;
+
+  .tablist {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3px;
+    padding-left: 0px;
+  }
 }
 
 $padding: 24px;

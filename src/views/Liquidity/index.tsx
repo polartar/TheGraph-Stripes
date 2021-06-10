@@ -1,20 +1,26 @@
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import LiquidityTab from "./LiquidityTab";
-
+import Panel from 'components/Panel';
 import 'react-tabs/style/react-tabs.css';
 import style from './style.module.scss';
 
 const Liquidity = () => {
   return (
     <div className={style.panel}> 
-      <Tabs className='tabs'>
-        <TabList>
+      <Tabs defaultIndex={1}>
+        <TabList className={style.tablist}>
           <Tab>Trade</Tab>
           <Tab>Liquidity</Tab>
         </TabList>
 
         <TabPanel>
-          Trade
+          <Panel
+            heading="Trade"
+            subHeading=""
+            actions={[ ]}
+            className={style.panel}
+          >
+            </Panel>
         </TabPanel>
         <TabPanel>
           <LiquidityTab />
