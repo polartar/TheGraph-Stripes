@@ -1,15 +1,21 @@
 @import 'styles/variables/colors';
+@import 'styles/variables/spacing';
 
 .handle {
   background: $color-light-bg;
   border-radius: 10px;
   color: $color-light-fg;
   box-shadow: 0 2px 4px rgba(0, 0, 0, .4);
-  display: flex;
   padding: 15px;
   cursor: pointer;
-  align-items: center;
   user-select: none;
+  margin-bottom: $spacing-m;
+
+  .header {
+    display: flex;
+    align-items: center;
+    margin-bottom: $spacing-xs;
+  }
 
   .main {
     flex-grow: 1;
@@ -23,32 +29,14 @@
         color: rgba(0, 0, 0, .3);
       }
     }
-
-    .rates {
-      margin-top: .5em;
-      display: flex;
-
-      .rate {
-        &:last-child {
-          margin-left: 2em;
-        }
-
-        .rateLabel {
-          display: block;
-          text-transform: uppercase;
-          font-size: .7rem;
-          margin-bottom: .3em;
-          color: #666;
-        }
-
-        .rateAmount {
-          font-size: 1.1rem;
-        }
-      }
-    }
   }
 
-  .caret {
+  .body {
+    display: flex;
+    justify-content: space-between;
+  }
 
+  .hide {
+    display: none;
   }
 }

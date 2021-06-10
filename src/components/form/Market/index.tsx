@@ -1,52 +1,50 @@
-import { faAngleDown, faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import { useState } from 'react';
+import { faExpandAlt, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import LiveSignum from 'components/LiveSignum';
 import MarketName from 'components/MarketName';
-import useModal from 'hooks/useModal';
-import { useEffect, useState } from 'react';
+import Button from 'components/Button';
 import classes from 'utils/classes';
 import style from './style.module.scss';
 
 interface Props {
   className?: string;
+  bodyItems?: Array<{name, value}>;
 }
 
-const Market = ({ className }: Props) => {
-  const [marketRate, setMarketRate] = useState('6.54%');
-  const [oracleRate, setOracleRate] = useState('14.32%');
-  const modal = useModal();
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setMarketRate(`${(6 + randomNumber()).toFixed(2)}%`);
-      setOracleRate(`${(12 + randomNumber()).toFixed(2)}%`);
-    }, 2000);
-
-    return () => {
-      clearInterval(interval);
-    }
-  }, []);
+const Market = ({ className, bodyItems}: Props) => {
+  const [isExpand, setIsExpand] = useState(true);
 
   return (
-    <div className={classes(style.handle, className)} onClick={() => {}}>
-      <div className={style.main}>
-        <div className={style.value}>
-          <MarketName market="AAVE" />
-          <FontAwesomeIcon icon={faAngleRight} />
-          USDC Deposit Rate
-        </div>
-        <div className={style.rates}>
-          <div className={style.rate}>
-            <span className={style.rateLabel}>Oracle (Floating) Rate</span>
-            <LiveSignum value={oracleRate} className={style.rateAmount} />
-          </div>
-          <div className={style.rate}>
-            <span className={style.rateLabel}>Market (Fixed) Rate</span>
-            <LiveSignum value={marketRate} className={style.rateAmount} />
-          </div>
-        </div>
+    <div className={classes(style.handle, className)} onClick={() => setIsExpand(!isExpand)}>
+        <div className={style.header}>
+            <div className={style.main}>
+                <div className={style.value}>
+                <MarketName market="AAVE" />
+                <FontAwesomeIcon icon={faAngleRight} />
+                USDC Deposit Rate
+                </div>
+                
+            </div>
+            <FontAwesomeIcon icon={faExpandAlt} className={style.caret} />
       </div>
-      <FontAwesomeIcon icon={faAngleDown} className={style.caret} />
+      <div className={isExpand? style.body : style.hide}>
+          {
+          bodyItems?.map(item => {
+              return (
+                  <div key={item.name} className={style.bodyItem}>
+                      <div>{item.name}:</div>
+                      <div>{item.value}</div>                          
+                  </div>
+              )
+          })
+          }
+          {
+              bodyItems?.length &&
+              <Button variant="secondary" size="medium">
+                Remove
+               </Button>
+          }
+      </div>
     </div>
   );
 };

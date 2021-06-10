@@ -42,9 +42,10 @@ const PanelWithButton = ({
             </div>
           )}
         </div>
-      <Button variant="primary" size="medium">
-        {buttonName}
-      </Button>
+        
+        <Button variant="primary" size="medium">
+          {buttonName}
+        </Button>
       </div>
       
       <div className={style.content}>{children}</div>
