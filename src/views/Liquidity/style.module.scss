@@ -1,7 +1,58 @@
 @import 'styles/variables/common';
-
+@import 'styles/mixins/common';
 .panel {
   width: $panel-width;
   margin: 0 auto;
   border-radius: 20px;
+}
+
+$padding: 24px;
+ 
+
+.header {
+  padding: $padding;
+  border-bottom: 1px solid rgba(255, 255, 255, .1);
+  display: flex;
+  align-items: center;
+
+  .heading {
+    flex-grow: 1;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin: 0;
+
+    > small {
+      display: block;
+      color: rgba(255, 255, 255, .6);
+    }
+  }
+}
+.actions {
+  .action {
+    @include reset-button;
+    padding: 5px;
+    border-radius: 3px;
+    transition: .2s background-color;
+    font-size: 1.1rem;
+    
+    &:hover {
+      background-color: rgba(255, 255, 255, .1);
+    }
+  }
+}
+.subheader {
+  display: flex;
+  justify-content: space-between;
+  padding: $padding 0;
+}
+.subheading {
+  flex-grow: 1;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin: 0;
+  display: block;
+  color: rgba(255, 255, 255, .6);
+}
+.content {
+  padding: $padding;
 }

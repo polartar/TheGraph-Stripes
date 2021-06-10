@@ -1,4 +1,6 @@
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import LiquidityTab from "./LiquidityTab";
+
 import 'react-tabs/style/react-tabs.css';
 import style from './style.module.scss';
 
@@ -12,10 +14,10 @@ const Liquidity = () => {
         </TabList>
 
         <TabPanel>
-          <h2>Any content 1</h2>
+          Trade
         </TabPanel>
         <TabPanel>
-          <h2>Any content 2</h2>
+          <LiquidityTab />
         </TabPanel>
       </Tabs>
     </div>
