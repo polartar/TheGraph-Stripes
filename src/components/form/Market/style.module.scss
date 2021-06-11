@@ -7,7 +7,6 @@
   color: $color-light-fg;
   box-shadow: 0 2px 4px rgba(0, 0, 0, .4);
   padding: 15px;
-  cursor: pointer;
   user-select: none;
   margin-bottom: $spacing-m;
 
@@ -36,6 +35,7 @@
     .item {
       display: flex;
       justify-content: space-between;
+      margin-bottom: $spacing-xs;
     }
     
     .removeButton {
@@ -60,5 +60,8 @@
 
   .hide {
     display: none;
+  }
+  .caret {
+    cursor: pointer;
   }
 }
