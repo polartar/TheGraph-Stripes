@@ -69,8 +69,13 @@ const Liquidity = () => {
             </button>
         </div>
       </div>
-
-      <Market loading={loading} liquidities={liquidities} removeLiquidity={removeLiquidity}/>
+      {
+        liquidities.map(item => {
+          return (
+            <Market loading={loading} liquidity={item} removeLiquidity={removeLiquidity}/>
+          )
+        })
+      }
      
       <MarketNameExpand market={liquidity?.name as any}/>
     </PanelWithButton>
