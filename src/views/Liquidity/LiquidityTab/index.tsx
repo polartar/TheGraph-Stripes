@@ -76,9 +76,7 @@ const Liquidity = () => {
           )
         })
       }
-     
-      <MarketNameExpand market={liquidity?.name as any}/>
-    </PanelWithButton>
+     </PanelWithButton>
   )
 }
 
