@@ -45,7 +45,7 @@ const Market = ({ loading, liquidities, removeLiquidity}: Props) => {
                                 </div>
                                 <div className={style.item}>
                                     <div>Your pool tokens:</div>
-                                    <div>{liquidity.token.name}</div>                       
+                                    <div>{liquidity.token.name ? liquidity.token.name : 123}</div>                       
                                 </div>
                                 <div className={style.item}>
                                     <div>Your pool share:</div>
