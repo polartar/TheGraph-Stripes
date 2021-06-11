@@ -21,6 +21,8 @@ const MarketName = ({ market, className }: Props) => {
         return yearnLogo;
       case 'Nerve':
         return nerveLogo;
+      default:
+        return yearnLogo;
     }
   }, [market]);
 

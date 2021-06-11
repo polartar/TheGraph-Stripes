@@ -72,7 +72,7 @@ const Liquidity = () => {
 
       <Market loading={loading} liquidities={liquidities} removeLiquidity={removeLiquidity}/>
      
-      <MarketNameExpand market={liquidity?.name as any} className='wrapper'/>
+      <MarketNameExpand market={liquidity?.name as any}/>
     </PanelWithButton>
   )
 }

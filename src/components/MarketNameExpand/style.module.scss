@@ -3,7 +3,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-
+  background: $color-light-bg;
+  border-radius: 10px;
+  color: $color-light-fg;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .4);
+  padding: 15px;
+  cursor: pointer;
+  user-select: none;
+  
   .logo {
     display: block;
     width: 28px;
