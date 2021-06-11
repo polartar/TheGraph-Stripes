@@ -35,7 +35,7 @@
     .item {
       display: flex;
       justify-content: space-between;
-      margin-bottom: $spacing-xs;
+      margin-bottom: $spacing-xs / 2;
     }
     
     .removeButton {
@@ -44,7 +44,7 @@
 
     .liquiditySection {
       cursor: pointer;
-      margin-bottom: $spacing-xs;
+      margin-bottom: $spacing-s;
 
       &:hover {
         background-color: $color-light-bg-hover;
