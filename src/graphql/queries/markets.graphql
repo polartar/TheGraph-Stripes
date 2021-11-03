@@ -1,6 +1,9 @@
 query markets {
   markets {
     name
+    token
+    createdAtBlock
+    createdAtTransaction
     assetSymbol
     currentPrice
     currentPrice24Change
